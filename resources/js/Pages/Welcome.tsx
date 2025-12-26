@@ -2,6 +2,9 @@ import { Ripple } from '@/components/ui/ripple';
 import { PageProps } from '@/types';
 import { Head, Link } from '@inertiajs/react';
 import { Command } from 'lucide-react';
+import Tracking from './Tracking';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 
 export default function Welcome({ auth }: PageProps) {
     return (
@@ -49,15 +52,34 @@ export default function Welcome({ auth }: PageProps) {
                     </div>
                 </header>
 
-                <main className="mx-auto h-full w-full max-w-7xl grow">
+                <main className="mx-auto h-1/2 w-full max-w-7xl grow">
                     <div className="relative flex h-full items-center justify-center">
-                        <p className="text-[clamp(1.5rem,5vw,4rem)] leading-none">
-                            Your landing goes here
-                        </p>
+                        <div className="flex flex-col items-center justify-center gap-6 w-full max-w-3xl p-4">
+                            <h1 className="text-[clamp(2rem,3vw,5rem)] leading-tight text-center font-bold">
+                                We Source Products and Ship On Your Behalf, From 7 Countries
+                            </h1>
+                            
+                            <div className="flex flex-col sm:flex-row gap-2 w-full">
+                                <Input 
+                                    type="email" 
+                                    placeholder="Enter your tracking number" 
+                                    className="flex-1 h-14 text-lg px-4" 
+                                />
+                                <Button 
+                                    aria-label="Submit" 
+                                    className="w-full sm:w-auto h-14 px-8 text-lg"
+                                >
+                                    Track your package
+                                </Button>
+                            </div>
+                        </div>
+
                         <Ripple />
                     </div>
                 </main>
+                
             </div>
+            
         </>
     );
 }
